@@ -112,9 +112,9 @@ class Ui_MainWindow(object):
         # 点击pushButton_6 打开摄像头 显示在label标签上 先调用 cap_start()以实现摄像头刷新
         self.pushButton_6.clicked.connect(self.cap_start)
 
-        # 先打开摄像头 点击pushButton 获取30张摄像头前人脸图像 保存于dataset文件夹中
+        # 先打开摄像头 在label_2 label_3 输入User_id和Name 点击pushButton 获取30张摄像头前人脸图像 保存于dataset文件夹中
 
-        # 在label_2 label_3 输入User_id和Name 点击pushButton2 训练当前的数据集图像信息生成yml文件
+        # 点击pushButton2 训练当前的数据集图像信息生成yml文件
 
         # 点击pushButton_3 拍摄图片
 
@@ -145,13 +145,8 @@ class Ui_MainWindow(object):
             self.label.setPixmap(QPixmap.fromImage(self.image))
 
 
-
-
-
-
-        return
-
     def acquire_data(self):    # 获取训练数据
+
         return
 
     def train_data(self):      # 训练数据——生成yml

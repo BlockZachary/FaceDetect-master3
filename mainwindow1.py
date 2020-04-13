@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
 
     # 初始化人物id及其姓名列表
     id = 0
-    names = ['None', 'Alice', 'Curry', 'Ilza', 'Z', 'W']
+    names = ['None', 'Alice', 'Curry']
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("Face-detect-recog")
