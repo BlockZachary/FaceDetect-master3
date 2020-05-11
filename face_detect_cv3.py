@@ -30,7 +30,7 @@ print("Found {0} faces!".format(len(faces)))
 
 # Draw a rectangle around the faces
 for (x, y, w, h) in faces:           #在检测到的面部周围画框
-    cv2.rectangle(image, (x, y), (x+w, y+h), (237, 149, 100), 2)
+    cv2.rectangle(image, (x, y), (x+w, y+h), (0,255,0), 2)
 
 cv2.imshow("Faces found", image)    #展示结果
 cv2.waitKey(0)

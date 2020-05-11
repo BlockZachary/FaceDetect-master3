@@ -5,10 +5,10 @@ import cv2
 
 #获取图片路径
 #imagePath = "ph1.png"
-imagePath = "ph2.png"
+# imagePath = "ph2.png"
 #imagePath ="ph3.png"
 #imagePath ="ph4.png"
-#imagePath = "ph5.png"
+imagePath = "ph5.png"
 
 #加载haar分类器的xml文件路径
 cascPath = "haarcascade_frontalface_default.xml"

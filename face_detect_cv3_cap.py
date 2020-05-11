@@ -1,6 +1,5 @@
 #Author： Zachary
 import cv2
-import sys
 
 #capture the image
 cap = cv2.VideoCapture(0)

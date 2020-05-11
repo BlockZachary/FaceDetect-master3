@@ -4,9 +4,9 @@ import cv2
 # Get user supplied values
 
 #获取图片路径
-#imagePath = "ph1.png"
-#imagePath = "ph2.png"
-#imagePath ="ph3.png"
+# imagePath = "ph1.png"
+# imagePath = "ph2.png"
+# imagePath ="ph3.png"
 imagePath ="ph4.png"
 cascPath = "haarcascade_frontalface_default.xml"       #加载haar分类器的xml文件
 
@@ -17,10 +17,14 @@ faceCascade = cv2.CascadeClassifier(cascPath)     #创建haar级联并使用面�
 
 # Read the image
 image = cv2.imread(imagePath)
+ycbcr = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)             #COLOR_BGR2YCbCr
 temp = cv2.cvtColor(image, cv2.COLOR_BGR2RGBA)             #COLOR_BGR2RGBA
 gray = cv2.cvtColor(temp, cv2.COLOR_BGR2GRAY)     #读取图像并转化为灰度
+# gray1 = cv2.cvtColor(temp, cv2.COLOR_RGBA2GRAY)     #读取图像并转化为灰度
 
-#cv2.imshow("gray",gray)
+# cv2.imshow("ycbcr",ycbcr)
+# cv2.imshow("gray",gray)
+# cv2.imshow("gray1",gray1)
 
 
 # Detect faces in the image
