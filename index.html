@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务端接受的图片</title>
+    <meta http-equiv="refresh" content="10">
+</head>
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+    function Pic(){
+    document.getElementById('1').style.display = "block";
+    document.getElementById('2').style.display = "none";
+    document.getElementById('3').style.display = "none";
+    }
+    function Dect(){
+    document.getElementById('1').style.display = "none";
+    document.getElementById('2').style.display = "block";
+    document.getElementById('3').style.display = "none";
+    }
+    function Reco(){
+    document.getElementById('1').style.display = "none";
+    document.getElementById('2').style.display = "none";
+    document.getElementById('3').style.display = "block";
+    }
+</SCRIPT>
+<div>
+    <INPUT TYPE="button" value='显示照片' onclick="Pic()">
+    <INPUT TYPE="button" value='人脸检测结果' onclick="Dect()">
+    <INPUT TYPE="button" value='人脸识别结果' onclick="Reco()">
+</div>
+<img src='capture.png' id="1" style='display:none'>
+<img src='detectresult_path' id="2" style='display:none'>
+<img src='recog_result.png' id="3" style='display:none'>
+
+</body>
+</html>

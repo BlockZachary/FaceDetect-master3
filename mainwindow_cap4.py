@@ -1,10 +1,21 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mainwindow_cap3.ui'
+# Form implementation generated from reading ui file 'mainwindow_cap4.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
+
+
+'''
+在此版本中 运行了代码之后
+在当前文件夹下 运行 python3 -m http.server
+启动Http服务 并将人脸识别结果上传至服务器中
+在本地浏览器输入localhost:8000
+可以查看结果
+'''
+
+
 import os
 import sys
 import cv2
@@ -18,26 +29,29 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 #线程类
 class Thread_click(QThread):
-    _signal = pyqtSignal(int)
+    _signal = pyqtSignal()
 
     def __init__(self):
         super(Thread_click, self).__init__()
 
     def run(self):
-        self._signal.emit(1)
-        time.sleep(1)
+        self._signal.emit()
+        self.sleep(2)
+
+    def __del__(self):
+        self.exit()
 
 
 class Ui_MainWindow(object):
 
     # 加载haar分类器的xml文件路径
     cascPath = "haarcascade_frontalface_default.xml"
+    # cascPath = "cascade2.0.xml"
 
     # Create the haar cascade
-    faceCascade = cv2.CascadeClassifier(cascPath)  # 创建haar级联并使用面部级联对其进行初始化，
-    # 这会将面部级联加载到内存中，以便使用，
-    # 级联只是一个XML文件，其中包含用于检测人脸的数据
-    # 显示信息字体
+    faceCascade = cv2.CascadeClassifier(cascPath)  # 创建haar级联并使用面部级联分类器xml对其进行初始化，# 这会将面部级联加载到内存中，以便使用，# 级联只是一个XML文件，其中包含用于检测人脸的数据
+
+    # 显示信息字体，人脸识别时候的信息显示
     font = cv2.FONT_HERSHEY_COMPLEX_SMALL
 
     path = 'dataset'
@@ -273,11 +287,12 @@ class Ui_MainWindow(object):
         self.label.setPixmap(jpg_out)  # 设置图片显示
 
 
+# 拍摄待检测或识别图像
     def pushbutton3_clicked(self):
         self.th3 = Thread_click()
         self.th3._signal.connect(self.capture_ph)
         self.th3.start()
-    def capture_ph(self):  # 拍摄待检测或识别图像
+    def capture_ph(self):
         self.textBrowser.setText("[INFO] 请等待拍摄图像...")
         self.cap_start()
         if self.cam.isOpened():
@@ -352,6 +367,7 @@ class Ui_MainWindow(object):
                               QtGui.QImage.Format_RGB888)  # pyqt5转换成自己能放的图片格式
         jpg_out = QtGui.QPixmap(_image)
         self.label.setPixmap(jpg_out)  # 设置图片显示
+        cv2.imwrite('recog_result.png',image)
         return
 
 
