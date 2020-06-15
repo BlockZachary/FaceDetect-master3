@@ -5,9 +5,9 @@
 # Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
-import sys
+
+
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QFileDialog
 
 
 class Ui_MainWindow(object):
@@ -39,7 +39,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.pushButton.clicked.connect(self.openimage)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -47,17 +46,3 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "选择图片"))
         self.pushButton_2.setText(_translate("MainWindow", "人脸检测"))
         self.pushButton_3.setText(_translate("MainWindow", "人脸识别"))
-
-
-    def openimage(self):
-        imgName, imgType = QFileDialog.getOpenFileName(self, '选择图片', 'c:\\', 'Image files(*.jpg *.gif *.png)')
-        jpg = QtGui.QPixmap(imgName).scaled(self.textBrowser.width(), self.textBrowser.height())
-        self.textBrowser.setPixmap(jpg)
-
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)  # 创建一个QApplication，也就是你要开发的软件app
-    MainWindow = QtWidgets.QWidget()   # 创建一个QMainWindow，用来装载你需要的各种组件、控件
-    ui = Ui_MainWindow()                    # ui是Ui_MainWindow()类的实例化对象
-    ui.setupUi(MainWindow)                  # 执行类中的setupUi方法，方法的参数是第二步中创建的QMainWindow
-    MainWindow.show()                       # 执行QMainWindow的show()方法，显示这个QMainWindow
-    sys.exit(app.exec_())                   # 使用exit()或者点击关闭按钮退出QApplicat

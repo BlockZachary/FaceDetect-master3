@@ -16,8 +16,8 @@ class Ui_MainWindow(object):
 
 
     # 加载haar分类器的xml文件路径
-    # cascPath = "haarcascade_frontalface_default.xml"
-    cascPath = "cascade2.0.xml"
+    cascPath = "haarcascade_frontalface_default.xml"
+    # cascPath = "cascade2.0.xml"
 
     # Create the haar cascade
     faceCascade = cv2.CascadeClassifier(cascPath)  # 创建haar级联并使用面部级联对其进行初始化，

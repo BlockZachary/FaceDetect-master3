@@ -7,9 +7,10 @@ import cv2
 # imagePath = "ph1.png"
 # imagePath = "ph2.png"
 # imagePath ="ph3.png"
-imagePath ="ph4.png"
+# imagePath ="ph4.png"
+imagePath ="capture.png"
 cascPath = "haarcascade_frontalface_default.xml"       #加载haar分类器的xml文件
-# cascPath = "cascade2.0.xml"       #加载haar分类器的xml文件
+cascPath = "cascade2.0.xml"       #加载haar分类器的xml文件
 
 # Create the haar cascade
 faceCascade = cv2.CascadeClassifier(cascPath)     #创建haar级联并使用面部级联对其进行初始化，
